@@ -9,30 +9,12 @@ import {
 import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import globalStyle from 'src/styles/GlobalStyles';
-import {useDispatch} from 'react-redux';
-import {request} from 'src/features/user/userSlice';
-import {kApiSignup} from 'src/config/WebService';
-import auth from '@react-native-firebase/auth';
+import {firebaseSignUp} from 'src/helpers/FirebaseHelper';
 
 const SignUp = () => {
   const navigation = useNavigation();
   const [pwd, setPwd] = useState('');
   const [email, setEmail] = useState('');
-  const dispatch = useDispatch();
-
-  const onSignUpPressed = async (name, pwd) => {
-    try {
-      await auth()
-        .createUserWithEmailAndPassword(name, pwd)
-        .then(resp => {
-          console.log(resp.user);
-          alert('User account created & signed in!');
-        });
-    } catch (error) {
-      alert(error.code);
-      console.error(error);
-    }
-  };
 
   return (
     <View flex={1}>
@@ -50,25 +32,14 @@ const SignUp = () => {
           onChangeText={setPwd}
           placeholder={'Enter Pwd'}
           autoCapitalize={'none'}
+          onSubmitEditing={() => {
+            onSignUpPressed(email, pwd);
+          }}
         />
         <TouchableOpacity
           style={globalStyle('skyblue').button}
           onPress={() => {
-            // if (!!email & !!pwd) {
-            //   dispatch(
-            //     request({
-            //       url: kApiSignup,
-            //       // data: {name: name, email: email, password: pwd},
-            //       data: {email: email, password: pwd},
-            //     }),
-            //   );
-            // } else {
-            //   return Alert.alert(
-            //     'Missing Information',
-            //     'Fill up at least the email and password',
-            //   );
-            // }
-            onSignUpPressed(email, pwd);
+            firebaseSignUp(email, pwd);
           }}>
           <Text>Submit</Text>
         </TouchableOpacity>
@@ -80,12 +51,6 @@ const SignUp = () => {
             navigation.navigate('Log In');
           }}
         />
-        {/* <Button
-          title="(useContext example page)"
-          onPress={() => {
-            navigation.navigate('ReactContext');
-          }}
-        /> */}
       </View>
     </View>
   );

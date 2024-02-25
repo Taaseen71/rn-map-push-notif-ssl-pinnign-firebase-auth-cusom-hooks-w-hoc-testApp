@@ -1,3 +1,74 @@
 {
-    "java.compile.nullAnalysis.mode": "disabled"
+  "java.compile.nullAnalysis.mode": "disabled",
+  "hidefiles.configurationType": "local",
+  "hidefiles.globalConfig": {
+    "profiles": [
+      {
+        "name": "Default",
+        "detail": "",
+        "description": "Test",
+        "hidden": [
+          ".vscode/",
+          ".eslintrc.js",
+          ".gitignore",
+          ".prettierrc.js",
+          ".watchmanconfig",
+          "app.json",
+          "App.tsx",
+          "babel.config.js",
+          "Gemfile",
+          "Gemfile.lock",
+          "index.js",
+          "jest.config.js",
+          "metro.config.js",
+          "package.json",
+          "README.md",
+          "tsconfig.json",
+          "yarn.lock",
+          "__tests__/",
+          ".bundle/",
+          "android/",
+          "ios/",
+          "node_modules/",
+          "vendor/"
+        ]
+      },
+      {
+        "name": "Strict",
+        "detail": "Hide everything not immediately required",
+        "hidden": ["$Default"]
+      }
+    ]
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    ".vscode/": true,
+    ".eslintrc.js": true,
+    ".gitignore": true,
+    ".prettierrc.js": true,
+    ".watchmanconfig": true,
+    "app.json": true,
+    "App.tsx": true,
+    "babel.config.js": true,
+    "Gemfile": true,
+    "Gemfile.lock": true,
+    "index.js": true,
+    "jest.config.js": true,
+    "metro.config.js": true,
+    "package.json": true,
+    "README.md": true,
+    "tsconfig.json": true,
+    "yarn.lock": true,
+    "__tests__/": true,
+    ".bundle/": true,
+    "android/": true,
+    "ios/": true,
+    "node_modules/": true,
+    "vendor/": true
+  },
+  "hidefiles.selectedProfile": "Default"
 }
