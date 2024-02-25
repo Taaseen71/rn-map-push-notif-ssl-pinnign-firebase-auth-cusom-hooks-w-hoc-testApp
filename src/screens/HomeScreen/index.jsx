@@ -6,7 +6,7 @@ import NotificationHelper from 'src/helpers/NotificationHelper';
 import messaging from '@react-native-firebase/messaging';
 
 const HomeScreen = () => {
-  // const navigation = useNavigation();
+  const navigation = useNavigation();
   const [notificationsOn, setNotificationsOn] = useState(false);
   const askForPermission = () => {
     Platform.OS == 'ios'
@@ -30,6 +30,9 @@ const HomeScreen = () => {
         'A new FCM message arrived!',
         JSON.stringify(remoteMessage.notification),
       );
+      if (remoteMessage.data.route == 'fetch') {
+        navigation.navigate('Fetch');
+      }
     });
     return unsubscribe;
   }, []);
@@ -48,12 +51,12 @@ const HomeScreen = () => {
           firebaseLogOut();
         }}
       />
-      {/* <Button
+      <Button
         title="Fetch"
         onPress={() => {
           navigation.navigate('Fetch');
         }}
-      /> */}
+      />
     </View>
   );
 };
