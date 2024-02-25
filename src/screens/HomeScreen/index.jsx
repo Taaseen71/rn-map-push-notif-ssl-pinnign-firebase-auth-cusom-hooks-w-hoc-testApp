@@ -15,24 +15,33 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    notificationsOn && askForPermission();
-  }, [notificationsOn]);
+    askForPermission();
+  }, []);
+
+  const loadToken = async () => {
+    let token = await NotificationHelper.getDeviceTokenForAndroid();
+    console.log(token);
+  };
 
   useEffect(() => {
+    loadToken();
     const unsubscribe = messaging().onMessage(async remoteMessage => {
-      Alert.alert('A new FCM message arrived!', JSON.stringify(remoteMessage));
+      Alert.alert(
+        'A new FCM message arrived!',
+        JSON.stringify(remoteMessage.notification),
+      );
     });
     return unsubscribe;
   }, []);
 
   return (
     <View>
-      <Button
+      {/* <Button
         title="Activate Notification Permissions"
         onPress={() => {
           setNotificationsOn(!notificationsOn);
         }}
-      />
+      /> */}
       <Button
         title="Log Out"
         onPress={() => {

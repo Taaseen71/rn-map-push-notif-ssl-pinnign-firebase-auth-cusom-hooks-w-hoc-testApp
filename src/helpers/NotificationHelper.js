@@ -32,6 +32,12 @@ class NotificationHelper {
       alert('Error With Notification Permission');
     }
   };
+
+  getDeviceTokenForAndroid = async () => {
+    await messaging().registerDeviceForRemoteMessages();
+    const token = await messaging().getToken();
+    return token;
+  };
 }
 
 export default new NotificationHelper();
