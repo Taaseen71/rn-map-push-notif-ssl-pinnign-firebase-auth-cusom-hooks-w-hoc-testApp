@@ -15,7 +15,7 @@ const HomeScreen = () => {
   };
 
   useEffect(() => {
-    askForPermission();
+    // askForPermission();
   }, []);
 
   const loadToken = async () => {

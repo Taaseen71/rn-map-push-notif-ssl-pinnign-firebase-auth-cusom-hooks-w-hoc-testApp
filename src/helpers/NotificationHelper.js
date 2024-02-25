@@ -38,6 +38,12 @@ class NotificationHelper {
     const token = await messaging().getToken();
     return token;
   };
+
+  setBackgroundNotificationForAndroid = () => {
+    messaging().setBackgroundMessageHandler(async remoteMessage => {
+      console.log('Message handled in the background!', remoteMessage);
+    });
+  };
 }
 
 export default new NotificationHelper();

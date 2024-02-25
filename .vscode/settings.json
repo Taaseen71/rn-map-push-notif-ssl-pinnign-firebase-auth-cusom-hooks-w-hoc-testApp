@@ -32,7 +32,7 @@
           "node_modules/",
           "vendor/"
         ],
-        "peek": ["android/"]
+        "peek": ["App.tsx", "index.js"]
       },
       {
         "name": "Strict",
@@ -53,11 +53,9 @@
     ".prettierrc.js": true,
     ".watchmanconfig": true,
     "app.json": true,
-    "App.tsx": true,
     "babel.config.js": true,
     "Gemfile": true,
     "Gemfile.lock": true,
-    "index.js": true,
     "jest.config.js": true,
     "metro.config.js": true,
     "package.json": true,
@@ -66,6 +64,7 @@
     "yarn.lock": true,
     "__tests__/": true,
     ".bundle/": true,
+    "android/": true,
     "ios/": true,
     "node_modules/": true,
     "vendor/": true
