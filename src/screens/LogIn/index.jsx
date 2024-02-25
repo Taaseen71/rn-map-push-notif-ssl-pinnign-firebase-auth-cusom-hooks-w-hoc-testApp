@@ -37,7 +37,7 @@ const LogIn = () => {
           placeholder={'Enter Pwd'}
           autoCapitalize={'none'}
           onSubmitEditing={() => {
-            onLoginPressed(email, pwd);
+            firebaseLogIn(email, pwd);
           }}
         />
         <TouchableOpacity

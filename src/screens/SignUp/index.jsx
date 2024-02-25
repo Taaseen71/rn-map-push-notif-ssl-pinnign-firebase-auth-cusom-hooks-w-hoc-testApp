@@ -33,7 +33,7 @@ const SignUp = () => {
           placeholder={'Enter Pwd'}
           autoCapitalize={'none'}
           onSubmitEditing={() => {
-            onSignUpPressed(email, pwd);
+            firebaseSignUp(email, pwd);
           }}
         />
         <TouchableOpacity
