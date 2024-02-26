@@ -28,10 +28,10 @@ const HomeScreen = () => {
     const unsubscribe = messaging().onMessage(async remoteMessage => {
       Alert.alert(
         'A new FCM message arrived!',
-        JSON.stringify(remoteMessage.notification),
+        JSON.stringify(remoteMessage.notification?.title),
       );
       if (remoteMessage.data.route == 'fetch') {
-        navigation.navigate('Fetch');
+        navigation.navigate('PokeScreen');
       }
     });
     return unsubscribe;
@@ -52,9 +52,9 @@ const HomeScreen = () => {
         }}
       />
       <Button
-        title="Fetch"
+        title="Pokemon Api"
         onPress={() => {
-          navigation.navigate('Fetch');
+          navigation.navigate('PokeScreen');
         }}
       />
     </View>

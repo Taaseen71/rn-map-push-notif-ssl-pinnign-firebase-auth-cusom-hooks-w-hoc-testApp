@@ -1,8 +1,10 @@
-export const kApiUrl = 'http://localhost:3000/api'; //'https://jsonplaceholder.typicode.com';
-export const kApiGetItems = '/items';
-export const kApiSignup = '/Users';
-export const kApiLogin = '/Users/login';
-export const kApiLogOut = '/Users/logout'
+// export const kApiUrl = 'http://localhost:3000/api'; //'https://jsonplaceholder.typicode.com';
+// export const kApiGetItems = '/items';
+// export const kApiSignup = '/Users';
+// export const kApiLogin = '/Users/login';
+// export const kApiLogOut = '/Users/logout'
+
+export const PokeApi = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=151';
 
 export const ERROR_NETWORK_NOT_AVAILABLE = {
   title: 'Oops!',

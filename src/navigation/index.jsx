@@ -9,10 +9,13 @@ import {
   Fetch,
   ReactContext,
   ReactSagaScreen,
+  PokeScreen,
 } from '@screens';
 import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
+
+import {addSslPinningErrorListener} from 'react-native-ssl-public-key-pinning';
 
 const Navigation = props => {
   const Stack = createNativeStackNavigator();
@@ -31,6 +34,15 @@ const Navigation = props => {
       ),
     };
   };
+
+  useEffect(() => {
+    const subscription = addSslPinningErrorListener(error => {
+      console.log(error.serverHostname);
+    });
+    return () => {
+      subscription.remove();
+    };
+  }, []);
 
   useEffect(() => {
     function authStatechanged(user) {
@@ -53,6 +65,7 @@ const Authorized = ({Stack, naviButton}) => (
   <Stack.Navigator>
     <Stack.Screen name="Home">{() => <HomeScreen />}</Stack.Screen>
     <Stack.Screen name="Fetch">{() => <Fetch />}</Stack.Screen>
+    <Stack.Screen name="PokeScreen">{() => <PokeScreen />}</Stack.Screen>
   </Stack.Navigator>
 );
 
